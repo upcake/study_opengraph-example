@@ -2,7 +2,16 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>팀 짜기</title>
+<title>오픈그래프 예제</title>
+
+<meta property="og:title" content="오픈그래프 예제"/>
+<meta property="og:type" content="website"/>
+<meta property="og:description" content="오픈그래프를 설명하기 위한 예제 사이트입니다."/>
+<meta property="og:url" content="https://opengraph-example.herokuapp.com/"/>
+<meta property="og:image" content="https://opengraph-example.herokuapp.com/images/image.png"/>
+<meta property="og:image:width" content="400"/>
+<meta property="og:image:height" content="300"/>
+
 
 <style>
 
@@ -30,6 +39,8 @@ $(document).ready(function() {
 			, type: "GET"
 			, data: {baseURL : baseURL}
 			, success: function(ogVO) {
+				console.log(ogVO);
+				
 				var title = $("<p>title</p>");
 				var type = $("<p>type</p>");
 				var description = $("<p>description</p>");
