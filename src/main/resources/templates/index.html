@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>팀 짜기</title>
+
+<style>
+
+</style>
+</head>
+
+<body>
+	 <!-- URL 입력 -->
+	<input type="text" id="baseURL" />
+	<button type="button" id="sendURL">전송</button>
+	
+	
+	<div id="result_box">
+
+	</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+	$("#sendURL").on("click", function() {
+		const baseURL = $("#baseURL").val();
+		
+		$.ajax({
+			url: "./getOpenGraph"
+			, type: "GET"
+			, data: {baseURL : baseURL}
+			, success: function(ogVO) {
+				var title = $("<p>title</p>");
+				var type = $("<p>type</p>");
+				var description = $("<p>description</p>");
+				var url = $("<p>url</p>");
+				var image = $("<img src='' />")
+				
+				$("#result_box").append(title);
+				$("#result_box").append(type);
+				$("#result_box").append(description);
+				$("#result_box").append(url);
+				$("#result_box").append(image);
+			}, error: function(e) {
+				console.log(e);
+			}
+		});
+	});
+});
+</script>
+</body>
+</html>
