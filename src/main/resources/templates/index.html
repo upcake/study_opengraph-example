@@ -39,13 +39,11 @@ $(document).ready(function() {
 			, type: "GET"
 			, data: {baseURL : baseURL}
 			, success: function(ogVO) {
-				console.log(ogVO);
-				
-				var title = $("<p>title</p>");
-				var type = $("<p>type</p>");
-				var description = $("<p>description</p>");
-				var url = $("<p>url</p>");
-				var image = $("<img src='' />")
+				var title = $("<h3>title</h3><p>" + ogVO.title + "</p><hr>");
+				var type = $("<h3>type</h3><p>" + ogVO.type + "</p><hr>");
+				var description = $("<h3>description</h3><p>" + ogVO.description + "</p><hr>");
+				var url = $("<h3>url</h3><p>" + ogVO.url + "</p>");
+				var image = $("<h3>image</h3><img src='" + ogVO.image + "' />")
 				
 				$("#result_box").append(title);
 				$("#result_box").append(type);
