@@ -41,12 +41,15 @@ $(document).ready(function() {
 			, success: function(ogVO) {
 				var title = $("<h3>title</h3><p>" + ogVO.title + "</p><hr>");
 				var type = $("<h3>type</h3><p>" + ogVO.type + "</p><hr>");
+				var author = $("<h3>article:author</h3><p>" + ogVO.author + "</p><hr>");
 				var description = $("<h3>description</h3><p>" + ogVO.description + "</p><hr>");
-				var url = $("<h3>url</h3><p>" + ogVO.url + "</p>");
-				var image = $("<h3>image</h3><img src='" + ogVO.image + "' />")
+				var url = $("<h3>url</h3><p>" + ogVO.url + "</p><hr>");
+				var image = $("<h3>image</h3><img src='" + ogVO.image + "' /><hr>");
 				
+				$("#result_box").html("");
 				$("#result_box").append(title);
 				$("#result_box").append(type);
+				$("#result_box").append(author);
 				$("#result_box").append(description);
 				$("#result_box").append(url);
 				$("#result_box").append(image);

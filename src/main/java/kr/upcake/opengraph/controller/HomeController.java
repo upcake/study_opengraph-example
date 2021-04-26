@@ -23,7 +23,8 @@ public class HomeController {
 		OpenGraphVO ogVO = null;
 		
 		try {
-			OpenGraph page = new OpenGraph(baseURL, false);
+			OpenGraph page = new OpenGraph(baseURL, true);
+			//MetaElement[] meta = page.getProperties();
 			
 			ogVO = new OpenGraphVO();
 			ogVO.setTitle(getContent(page, "title"));
@@ -31,6 +32,7 @@ public class HomeController {
 			ogVO.setImage(getContent(page, "image"));
 			ogVO.setType(getContent(page, "type"));
 			ogVO.setUrl(getContent(page, "url"));
+			ogVO.setAuthor(getContent(page, "article:author"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
